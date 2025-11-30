@@ -1,160 +1,1161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-    .container {
-        width: 90%;
-        max-width: 800px;
-        padding: 20px 40px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        color: #333;
-        margin: auto;
-    }
-    .logo {
-        max-width: 200px;
-        height: auto;
-        margin-bottom: 20px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #000;
-    }
-    p {
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 5px;
-        text-align: left;
-    }
-    .tabs {
-        list-style-type: none;
-        padding: 0;
-        margin: 20px 0;
-    }
-    .tab {
-        margin-bottom: 10px;
-    }
-    .tab a {
-        display: block;
-        padding: 15px 30px;
-        background-color: #000;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    .tab a:hover {
-        background-color: #333;
-    }
-    .sub-container {
-        display: none;
-        text-align: left;
-        margin-top: 5px;
-        width: 100%;
-    }
-    .venue-subcard {
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin-bottom: 10px;
-        background-color: #f9f9f9;
-    }
-    .venue-subcard h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-        color: #333;
-        margin-top: 5px;
-    }
-    .venue-subcard p {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 5px;
-    }
-    .map-container {
-        position: relative;
-        width: 100%;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-    }
-    .map {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-    .tab.active .sub-container {
-        display: block;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huzaifa Mankda - Software Engineer & Researcher</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-bg-primary: rgba(13, 27, 42, 1);
+            --color-bg-secondary: rgba(20, 35, 55, 1);
+            --color-text-primary: rgba(241, 245, 249, 1);
+            --color-text-secondary: rgba(148, 163, 184, 1);
+            --color-primary-blue: rgba(66, 135, 245, 1);
+            --color-primary-blue-hover: rgba(59, 120, 220, 1);
+            --color-primary-blue-active: rgba(52, 105, 195, 1);
+            --color-accent-teal: rgba(24, 192, 196, 1);
+            --color-accent-teal-hover: rgba(13, 171, 175, 1);
+            --color-accent-teal-dark: rgba(6, 148, 152, 1);
+            
+            --color-primary-blue-rgb: 66, 135, 245;
+            --color-text-primary-rgb: 241, 245, 249;
+            
+            --color-background: var(--color-bg-primary);
+            --color-surface: var(--color-bg-secondary);
+            --color-text: var(--color-text-primary);
+            --color-text-secondary: var(--color-text-secondary);
+            --color-primary: var(--color-primary-blue);
+            --color-primary-hover: var(--color-primary-blue-hover);
+            --color-primary-active: var(--color-primary-blue-active);
+            --color-border: rgba(var(--color-primary-blue-rgb), 0.15);
+            
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-16);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-20);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent-teal);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-20);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-32) var(--space-20);
+            background: linear-gradient(135deg, rgba(66, 135, 245, 0.15) 0%, rgba(24, 192, 196, 0.08) 100%);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-32);
+            border: 1px solid rgba(66, 135, 245, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 var(--space-12) 0;
+            color: var(--color-text);
+        }
+
+        .hero .title {
+            font-size: 20px;
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-20);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-20);
+            flex-wrap: wrap;
+            margin: var(--space-16) 0;
+            font-size: 14px;
+        }
+
+        .contact-info a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-accent-teal);
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: var(--space-32);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 var(--space-24) 0;
+            padding-bottom: var(--space-12);
+            border-bottom: 2px solid var(--color-primary);
+            color: var(--color-text);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            padding: var(--space-20);
+            margin-bottom: var(--space-16);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px -2px rgba(24, 192, 196, 0.3);
+            border-color: var(--color-accent-teal);
+            background: rgba(24, 192, 196, 0.08);
+        }
+
+        .card:hover h3 {
+            color: var(--color-accent-teal);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-12);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--color-text);
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin: var(--space-8) 0 0 0;
+        }
+
+        .card-date {
+            font-size: 13px;
+            color: var(--color-accent-teal);
+            background: rgba(24, 192, 196, 0.15);
+            padding: var(--space-8) var(--space-12);
+            border-radius: var(--radius-base);
+            white-space: nowrap;
+            border: 1px solid rgba(24, 192, 196, 0.3);
+        }
+
+        .card-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        .card-content ul {
+            margin: var(--space-12) 0;
+            padding-left: var(--space-20);
+        }
+
+        .card-content li {
+            margin-bottom: var(--space-8);
+        }
+
+        /* Highlights */
+        .highlight {
+            background: rgba(24, 192, 196, 0.1);
+            border-left: 3px solid var(--color-accent-teal);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin: var(--space-16) 0;
+            text-align: left;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--color-accent-teal);
+            margin-bottom: var(--space-8);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-16);
+            margin-top: var(--space-16);
+        }
+
+        .skill-category {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+        }
+
+        .skill-category h4 {
+            margin: 0 0 var(--space-12) 0;
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(66, 135, 245, 0.15);
+            color: var(--color-primary-blue);
+            padding: var(--space-8) var(--space-12);
+            border-radius: var(--radius-base);
+            font-size: 12px;
+            margin-right: var(--space-8);
+            margin-bottom: var(--space-8);
+            border: 1px solid rgba(66, 135, 245, 0.25);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: var(--space-32);
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-24);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: 3px solid var(--color-background);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--color-accent-teal);
+            box-shadow: 0 0 12px rgba(24, 192, 196, 0.6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-24);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(4px);
+        }
+
+        .timeline-item:hover h3 {
+            color: var(--color-accent-teal);
+        }
+
+        .timeline-item h3 {
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: 3px solid var(--color-background);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--color-accent-teal);
+            box-shadow: 0 0 12px rgba(24, 192, 196, 0.6);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: var(--space-12) var(--space-20);
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: var(--radius-base);
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--color-accent-teal);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -6px rgba(24, 192, 196, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--color-accent-teal);
+            color: var(--color-accent-teal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent-teal);
+            color: var(--color-white);
+            border-color: var(--color-accent-teal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-32) var(--space-20);
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-top: var(--space-32);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: var(--space-12);
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .card-date {
+                align-self: flex-start;
+                margin-top: var(--space-12);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: var(--space-12);
+            }
+        }
+
+        /* Section Navigation Toggle */
+        .section-toggle {
+            cursor: pointer;
+            user-select: none;
+            padding: var(--space-8) var(--space-12);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-16);
+            font-size: 13px;
+            color: var(--color-accent-teal);
+            background: rgba(24, 192, 196, 0.15);
+            border: 1px solid rgba(24, 192, 196, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section-toggle:hover {
+            background: var(--color-accent-teal);
+            color: var(--color-white);
+            border-color: var(--color-accent-teal);
+        }
+
+        .section-content.hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Huzaifa Mankda</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#honors">Honors</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#mentoring">Mentoring</a></li>
+                <li><a href="#positions">Positions</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="container">
-    <img src="./weddinglogo.png" alt="Wedding Logo" class="logo">
-    <h1>Welcome to the Wedding Celebration!</h1>
-    <p>Dear friends and family,</p>
-    <p>We are overjoyed to invite you to join the celebration of love as Huzaifa and Zainab begin their journey together.</p>
-    <p>Your presence will make the day truly special and unforgettable.</p>
-    <p>We look forward to creating cherished memories with you.</p>
-    <p>With love and warm regards,<br>Mankda Family</p>
-    <ul class="tabs">
-        <li class="tab" id="rsvpTab">
-            <a href="https://forms.gle/t6iB2XXf51zBe4gt5">RSVP</a>
-        </li>
-        <li class="tab" id="venueTab">
-            <a href="#">Venues</a>
-            <div class="sub-container">
-                <div class="venue-subcard">
-                    <h3>Home</h3>
-                    <p>A 17/18 Yasha Bunglows, Nr. Kapadiya Parivar, Salatiya Road, P.O. Anand 388001</p>
-                    <div class="map-container">
-                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1842.1183209187927!2d72.95687246027158!3d22.570251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDM0JzEyLjkiTiA3MsKwNTcnMjAuMSJF!5e0!3m2!1sen!2sin!4v1713787192301!5m2!1sen!2sin" allowfullscreen></iframe>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-32); flex-wrap: wrap; margin-bottom: var(--space-24);">
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <div style="width: 180px; height: 180px; margin: 0 auto; background: linear-gradient(135deg, rgba(66, 135, 245, 0.2) 0%, rgba(24, 192, 196, 0.15) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid var(--color-primary-blue);">
+                        <div style="font-size: 80px;">📸</div>
                     </div>
+                    <p style="margin-top: var(--space-12); font-size: 12px; color: var(--color-text-secondary);">Add your photo here</p>
                 </div>
-                <div class="venue-subcard">
-                    <h3>A-1 Hall</h3>
-                    <p>A-1 Hall, 100ft Road, P.O. Anand 388001</p>
-                    <div class="map-container">
-                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7368.7849110035595!2d72.95506748465574!3d22.564420507629944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4fbe45e9f2c3%3A0x738f6ae843794e6a!2sA%20ONE%20HALL!5e0!3m2!1sen!2sin!4v1713786695518!5m2!1sen!2sin" allowfullscreen></iframe>
+                <div style="flex: 2; min-width: 300px;">
+                    <h1>Huzaifa Yusufbhai Mankda</h1>
+                    <p class="title">Software Engineer III • Consumer Shopping Quality • Google</p>
+                    <div class="contact-info">
+                        <span>📧 <a href="mailto:huzaifajazzmankda@gmail.com">huzaifajazzmankda@gmail.com</a></span>
+                        <span>📱 +1 (412) 284-8727</span>
+                        <span>🔗 <a href="https://www.linkedin.com/in/huzaifa242/">LinkedIn</a></span>
+                        <span>💻 <a href="https://github.com/huzaifa242">GitHub</a></span>
                     </div>
                 </div>
             </div>
-        </li>
-    </ul>
-</div>
+            
+            <div class="highlight">
+                <div class="highlight-title">About Me</div>
+                <p>
+                    I am driven by the challenge of solving complex technical problems at scale. With a background in both systems engineering 
+                    and applied AI, I'm interested in pursuing an MS in Computer Science at Stanford to deepen my expertise in machine learning systems, 
+                    large-scale distributed systems, and their real-world applications in solving societal challenges.
+                </p>
+            </div>
+        </section>
 
-<script>
-    const venueTab = document.getElementById('venueTab');
-    const subContainer = venueTab.querySelector('.sub-container');
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Stanford University</h3>
+                        <p class="card-meta">SCPD Non-Degree Option • Stanford, CA</p>
+                    </div>
+                    <span class="card-date">2021 - 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>CS221:</strong> Artificial Intelligence Principles and Techniques (Grade: A-) • Jun-Aug 2023</li>
+                        <li><strong>CS242:</strong> Programming Languages (Grade: A) • Oct-Dec 2021</li>
+                    </ul>
+                </div>
+            </div>
 
-    venueTab.addEventListener('click', () => {
-        if (subContainer.style.display === 'block') {
-            subContainer.style.display = 'none';
-        } else {
-            subContainer.style.display = 'block';
-        }
-    });
-</script>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Dharmsinh Desai University</h3>
+                        <p class="card-meta">B.Tech in Computer Engineering • Nadiad, India</p>
+                    </div>
+                    <span class="card-date">May 2020</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>CGPA: 9.28/10.0</strong></p>
+                    <p><strong>Relevant Courses:</strong> Data Structures, Algorithms, Machine Learning, AI, Database Systems, 
+                    Operating Systems, Network Security, Image Processing, Big Data Analytics</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Research Section -->
+        <section class="section" id="research">
+            <h2 class="section-title">Research Experience</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Predict Wildfires using Heuristics & Hotspot Patterns</h3>
+                        <p class="card-meta">Google • 20% research time allocation</p>
+                    </div>
+                    <span class="card-date">Jan 2024 - Present</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><b>Dedicated 20% of time</b> to research on FIRMS(Fire Information for Resource Management System) wildfire
+                        information using NASA Satellites to “Predict Wildfires using heuristics and hotspot patterns”.</li>
+                        <li>Sanitized <b>1.2</b> billion records from FIRMS Wildfire data for analysis.</li>
+                        <li>Created data visualizations to identify wildfire hotspot trends and patterns.</li>
+                        <li>Designed a pipeline to efficiently process a 1.2 billion-record database for complex and costly data intensive
+                        operations.</li>                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Impact of Stale Content on User Behavior in Search Feeds</h3>
+                        <p class="card-meta">Google</p>
+                    </div>
+                    <span class="card-date">Oct 2024 - Nov 2024</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Conducted A/B tests and data mining on shopping content staleness impact</li>
+                        <li>Analyzed correlation between document freshness, query class, user journey, and engagement</li>
+                        <li>Determined optimal fresh content ratio to maximize user satisfaction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Feature Analysis of Triggering Models for Sports Feed</h3>
+                        <p class="card-meta">Google</p>
+                    </div>
+                    <span class="card-date">Aug 2022 - Oct 2022</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Identified "national affinity" as weak feature in RL triggering model through systematic inspection</li>
+                        <li>Devised novel algorithm using location as proxy to address feature weakness</li>
+                        <li><strong>Impact:</strong> Improved recall by 30-50% across multiple countries; became reference for extending to women's sports</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Analysis of User Interest to determine Headroom for League Experience on Feed</h3>
+                        <p class="card-meta">Google</p>
+                    </div>
+                    <span class="card-date">Nov 2022 - Jan 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Conducted research on user interest analysis when became TL for Sports Vertical on Google Feed</li>
+                        <li>Developed clustering pipeline to determine relationships among teams, athletes, and league entities</li>
+                        <li>Performed regression analysis on interest capturing algorithm to quantify headroom</li>
+                        <li>Identified opportunities for future projects to optimize sports experience on Feed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Inspecting and Profiling Sports Server</h3>
+                        <p class="card-meta">Google</p>
+                    </div>
+                    <span class="card-date">Sep 2021 - Nov 2021</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Investigated code paths of Sports server to determine feasibility of latency optimization</li>
+                        <li>Designed algorithm to sample server requests</li>
+                        <li>Performed multiple iterations of load testing of infrastructure</li>
+                        <li>Optimized multiple code paths with most significant result reducing latency from 1.2s to 20ms in critical code path</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Semi-Automated Code Testing Environment</h3>
+                        <p class="card-meta">Dharmsinh Desai University</p>
+                    </div>
+                    <span class="card-date">Dec 2018 - Apr 2019</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Benchmarked CPU operations against code failures on random input sets</li>
+                        <li>Derived correlation between time and number of random inputs during code failure</li>
+                        <li>Implemented "Semi-Automated Code Testing Environment" to test code correctness based on time threshold</li>
+                        <li>Designed algorithm to generate random input sets consisting of multi-million inputs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Software Engineer III • Consumer Shopping Quality</h3>
+                        <p class="card-meta">Google • Pittsburgh, PA</p>
+                    </div>
+                    <span class="card-date">Apr 2024 - Present</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Leading team focused on Applied AI impacting 30% of Google Search traffic</li>
+                        <li>Led E2E launch of document-to-query corpus (+11.75% shopping query coverage), identified as most impactful launch</li>
+                        <li>Pioneered Generative AI experiences in Shopping; engineered ML pipeline for intent-based query refinements (19M queries)</li>
+                        <li>Leading effort to build Personalized Autoraters for AI shopping recommendations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Software Engineer III • Search Verticals - Sports</h3>
+                        <p class="card-meta">Google • Bengaluru, India</p>
+                    </div>
+                    <span class="card-date">Aug 2020 - Apr 2024</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Led infrastructure serving 600M MAU and 3% of global Google Search traffic</li>
+                        <li>Technical leadership on microservice migration (~1M LoC, zero user-facing disruption)</li>
+                        <li>Architected location-based interest inference; improved recall by 30-50% in multiple countries</li>
+                        <li>Reduced latency from 1.2s to 20ms in critical code path through systematic optimization</li>
+                        <li>Led launches for Olympics, World Cups affecting 500M+ unique users globally</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Software Engineering Intern</h3>
+                        <p class="card-meta">Amazon • Bengaluru, India</p>
+                    </div>
+                    <span class="card-date">Jan 2020 - Jul 2020</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Designed version control system for warehouse configuration audit and maintenance</li>
+                        <li>Performed security threat model analysis of web applications</li>
+                        <li>Optimized retry mechanisms in critical system paths; migrated service to HTTPS for external network availability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <h2 class="section-title">Notable Projects</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Shopping Intent Grouping with Generative AI</h3>
+                        <p class="card-meta">Google Consumer Shopping Quality</p>
+                    </div>
+                    <span class="card-date">2024 - 2025</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Pioneered workstream for Generative AI experiences in shopping navigation</li>
+                        <li>Built ML pipeline generating intent-based query refinements for 19M unique queries</li>
+                        <li>Shifted paradigm from reactive query processing to proactive user intent understanding</li>
+                        <li>Navigated evolving AI landscape and organizational priorities; drove cross-PA alignment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports Location-Based Interest Inference (World Cup 2022-23)</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2022 - 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Architected scalable, event-agnostic interest inference infrastructure for sports cards on Google Feed</li>
+                        <li>Overcame limitations in entity-affinity models through geographic team interest inference</li>
+                        <li><strong>Impact:</strong> +1.7M user views for FIFA Women's WC '23; +8% Homestack views for Cricket World Cup '23; +5.29% user followings</li>
+                        <li>Successfully deployed across multiple tentpole global events with automated quality guardrails</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports Monolithic → Microservices Migration</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2022 - 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Led Sports vertical's frontend migration from monolith to microservices (~1M LoC)</li>
+                        <li>Architected dual-serving strategy to maximize code reuse between legacy and new systems</li>
+                        <li>Conducted 60+ large-scale code reviews; mentored junior engineers on microservice paradigms</li>
+                        <li><strong>Result:</strong> Zero user-facing disruption; established patterns adopted by other verticals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Fastball: Sports Score Freshness Optimization</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Analyzed latency and freshness of sports scores on Google Search; identified ~74s staleness</li>
+                        <li>Co-architected transition from polling model to push-based infrastructure</li>
+                        <li><strong>Impact:</strong> 98.5% improvement in 99th-percentile freshness (74s → 1.1s); 0.16% reduction in duplicate queries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports iOS Live Activity</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Architected and implemented end-to-end lifecycle for iOS Live Activities (Pin Live Score) on Dynamic Island & Lock Screen</li>
+                        <li>Enabled queryless, real-time score updates covering 99% sports traffic</li>
+                        <li>Devised streamlined infrastructure plan for asynchronous push updates reducing engineering effort by 50%</li>
+                        <li>Designed asynchronous score updates overcoming Apple push notification throttle limitations with ~5sec freshness</li>
+                        <li><strong>Impact:</strong> +1% increase in total Sports user satisfaction; +3% user satisfaction during live matches; expanded to English + 4 international locales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports Named Events</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2020</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Increased reliability of contextual sports answers in Google Assistant from ~84% to 97.5% for tentpole events</li>
+                        <li>Re-architected event-context data model</li>
+                        <li>Resolved critical search-ranking bug by implementing and validating new signals</li>
+                        <li>Owned end-to-end quality and launch with multilingual (En/Es) recall evaluations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports Athlete Ratings</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2022</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Designed and built first User-Generated Content (UGC) systems for Sports on Search</li>
+                        <li>Enabled real-time collection, aggregation, and display of player ratings during live games without impacting search latency</li>
+                        <li>Engineered highly scalable backend handling >45M ratings during World Cup (peak 5.45M ratings for final)</li>
+                        <li>Designed real-time reconciliation system for drifting entity IDs across multiple distributed datastores</li>
+                        <li><strong>Impact:</strong> +1.21% increase in Queries; +14-18% increase in Interaction and Long Views</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Sports Bubbles</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2021 - 2023</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Architected and migrated high-traffic "Pin Live Score" Android UI on search (>5M daily users) from legacy stack to modern architecture</li>
+                        <li>Designed custom, server-controlled dynamic polling module for score refresh within restrictive framework</li>
+                        <li><strong>Performance gains:</strong> 3x-4x reduction in byte transfers; 20-30% decrease in memory usage; >10% reduction in session crashes</li>
+                        <li>Pioneered first Sports product on new architecture establishing design patterns adopted by Finance and other verticals</li>
+                        <li>Optimized internationalization (i18n) eliminating redundant client-to-server translation calls for every score refresh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">FIFA World Cup 2022</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2022</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Engineered location-based user interest pipeline increasing Sports card coverage on Discover (Google Feed) by 30-50% in participating countries</li>
+                        <li>Event reached 937M unique users with 19.1B search impressions</li>
+                        <li>Assumed emergency technical leadership for World Cup Discover features following senior engineer departure</li>
+                        <li>Successfully implemented Athlete experience triggering delivering +1.76% increase in user satisfaction with zero outages</li>
+                        <li>Served as primary technical point of contact for Google Feed team unblocking all World Cup launches</li>
+                        <li>Mentored two engineers to deliver critical features for the event</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Olympics 2020 Experiences</h3>
+                        <p class="card-meta">Google Search Verticals</p>
+                    </div>
+                    <span class="card-date">2021</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Engineered Olympics Medals Q&A feature for Search and Google Assistant across 51 locales</li>
+                        <li>Resolved complex geopolitical and historical data ambiguities through collaboration with International Olympic Committee (IOC)</li>
+                        <li>Owned rapid end-to-end launch of 'Where to Watch' Assistant feature driving +25% increase in DAU and +37% increase in Search/Assistant Interactions</li>
+                        <li>Owned core ranking and diversity model for event units achieving +14% increase in user interaction for Winter Olympics and Paralympics</li>
+                        <li><strong>Impact:</strong> 2.8B search impressions; 5.2M assistant impressions; 516M unique users; -30% manual refinement reductions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors Section -->
+        <section class="section" id="honors">
+            <h2 class="section-title">Honors & Awards</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Shopping Discover SIQE Launch Award</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Dec 2024</p>
+                    <p style="margin: 0;">For critical contributions to the Shopping Query Recommendations launch on Discover (Google Feed), which helped the team achieve the year-end target objective. This was the most impactful Shopping Discover Articles launch to date.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Sports Bubbles - The Next Generation Launch</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Dec 2023</p>
+                    <p style="margin: 0;">For reimplementing Sports Bubbles in a complex framework and hard work supporting the launch of Autobubbles and Deeplinks in the new infrastructure.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Stateful Google Feed & Query Follow Launch</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Dec 2023</p>
+                    <p style="margin: 0;">For domain expertise on sports features and serving as primary point of contact for the transformation of Google Feed from entity-based to query-based interest model, enabling time-critical launch with positive metrics and no outage.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">World Cup 2023 Award</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">May 2023</p>
+                    <p style="margin: 0;">For all the leadership and launches for FIFA World Cup 2022, Women's FIFA World Cup 2023, and ICC Cricket World Cup 2023.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Search Journey Fix It</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Mar 2023</p>
+                    <p style="margin: 0;">For contributing to Search-wide tech debt reduction effort during 2023 Q1.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Sports Outage Prevention AI</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Jan 2023</p>
+                    <p style="margin: 0;">For volunteering to work on postmortem action items and ensuring systematic processes to prevent unapproved experiments.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Location-based Smearing for T20 World Cup</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Oct 2022</p>
+                    <p style="margin: 0;">For phenomenal and timely research and A/B testing during T20 World Cup, establishing foundation for future tentpole events.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Dependable Teammate Award</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Oct 2022</p>
+                    <p style="margin: 0;">For above and beyond efforts to help Sports team meet World Cup features roadmap during senior engineer transition.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Google Feed Metrics Monitoring</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Oct 2022</p>
+                    <p style="margin: 0;">For proactive work monitoring A/B testing metrics using custom solution during dashboard outage.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Olympics 2020 Award</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Oct 2021</p>
+                    <p style="margin: 0;">For going above and beyond in Olympics and Paralympics 2020 experience on Google Search, Assistant and other surfaces across 51 locales.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Super Bowl 2021 Award</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Mar 2021</p>
+                    <p style="margin: 0;">For making Super Bowl 2021 experience on Assistant highly reliable (83.5% → 97.5%) and informative, resulting in 1.72M sports queries answered on Assistant.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Honorable Mention - ACM-ICPC Amritapuri Regionals</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Dec 2019</p>
+                    <p style="margin: 0;">Qualified for regionals competing with 250 other teams from 10K+ participants in preliminary round.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">48th Global (19th in India) Codechef August Long Challenge 2019 Div. 1</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Aug 2019</p>
+                    <p style="margin: 0;">Ranked 48th globally in highest division (Div. 1) with 1.2K participants; 24K+ total participants across all divisions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">71st Global Codeforces Round #572 Div. 2</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">July 2019</p>
+                    <p style="margin: 0;">Ranked 71st globally in Div. 2 with 9.3K participants; 10K total across all divisions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">27th Global (10th in India) Codechef June Long Challenge 2019 Div. 1</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">June 2019</p>
+                    <p style="margin: 0;">Ranked 27th globally in highest division with 900 participants; 14K+ total participants across all divisions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Barclays India Hackathon 2019 - Winner</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">June 2019</p>
+                    <p style="margin: 0;">Winner in Individual Category of DS & Algo coding contest with 2K+ participants from India.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Codechef Certified Data Structures and Algorithms - Advanced Level</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">Mar 2019</p>
+                    <p style="margin: 0;">Scored 1000/1250 achieving Advanced Level certification; held by approximately 100 individuals in India.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 style="margin: 0 0 var(--space-8) 0; font-size: 16px;">Ambuja Scholarship</h3>
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--space-8) 0; font-size: 13px;">July 2016</p>
+                    <p style="margin: 0;">Awarded annual scholarship of INR 75,000 for undergraduate studies; highest 12th grade score in school's 25-year history.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talks & Presentations Section -->
+        <section class="section" id="talks">
+            <h2 class="section-title">Talks & Presentations Delivered</h2>
+            <div class="card">
+                <ul style="margin: var(--space-16) 0; columns: 2; column-gap: var(--space-32);">
+                    <li><strong>Presentation:</strong> Intent based Shopping Query Refinements • Jun 2025</li>
+                    <li><strong>Tech Talk:</strong> Steps to Migrate Monolithic Code into Micro-Services (Multi-Million LoC) • Apr 2024</li>
+                    <li><strong>Search Outage Review:</strong> Sports In-game notification delivery failure • Sep 2023</li>
+                    <li><strong>Tech Talk:</strong> Architecting iOS Live Activities on iGSA (iOS Google Search App) • Aug 2023</li>
+                    <li><strong>Search Outage Review:</strong> Sports Experience stopped triggering on Search • Feb 2023</li>
+                    <li><strong>Search Outage Review:</strong> How Sports Server Crashed and Died? • Oct 2022</li>
+                    <li><strong>Tech Talk:</strong> Handling entity reconciliation across disjoint Distributed Database systems • May 2022</li>
+                    <li><strong>Tech Talk:</strong> Building Search Features with Server side rendering • Jan 2022</li>
+                    <li><strong>Workshop:</strong> Getting Started with Competitive Coding • Aug 2018</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Leadership & Mentoring Section -->
+        <section class="section" id="mentoring">
+            <h2 class="section-title">Leadership & Community</h2>
+            
+            <div class="card">
+                <h3 style="margin-top: 0; color: var(--color-primary); transition: color 0.3s ease;">Mentoring & Leadership</h3>
+                <ul>
+                    <li><strong>Project Guide:</strong> Mentored summer intern (2023); returned as Full-time Employee</li>
+                    <li><strong>Onboarding:</strong> Buddy/Guide for 5+ senior engineers and team leads facilitating integration into team</li>
+                    <li><strong>Technical Teams:</strong> Led operations team to launch soccer experience for 20 leagues in 1 month</li>
+                    <li><strong>Academic:</strong> ICPC mentor to 5 second-year undergraduate students who competed in regionals</li>
+                    <li><strong>Technical Interviews:</strong> Mentor to 5 undergrad students who landed jobs at Amazon</li>
+                    <li><strong>Career Counseling:</strong> Provided guidance to 10+ high school students</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0; color: var(--color-primary); transition: color 0.3s ease;">Community Contributions</h3>
+                <ul>
+                    <li>Led team of 6 engineers to set standards, best practices and improve code quality for repositories with 5M+ lines of code</li>
+                    <li>Led working group championing mandatory "Accessibility (A11Y)" and "Internationalization (i18n)" sections in organizational Design Doc template</li>
+                    <li>Volunteered to own postmortem of multiple search outages and designed plans to prevent future incidents</li>
+                    <li>Mitigated and resolved 5+ user-facing outages impacting 2-5M search users</li>
+                    <li>Monitored real-time Reliability and problem testing for CodeJam rounds in 2021 and 2022</li>
+                    <li>Conducted nearly 30 technical interviews</li>
+                    <li>Contributed to 3+ quarter-long efforts to reduce tech debt</li>
+                    <li>Design consultant for 7 projects and reviewer for 5 projects</li>
+                    <li>Member of C++ readability program reviewing and approving language readability of 600K+ LoC</li>
+                    <li>Problem author on competitive coding websites: Codechef (December Long Challenge 2018 Division 1) and HackerEarth (DS & Algo contest Oct 2019)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Positions Held Section -->
+        <section class="section" id="positions">
+            <h2 class="section-title">Positions Held</h2>
+            <div class="card">
+                <h3 style="margin-top: 0; color: var(--color-primary); transition: color 0.3s ease;">Dharmsinh Desai University • Nadiad, India</h3>
+                <ul>
+                    <li><strong>Non-Tech Editor (2018-19)</strong> for University Tabloid 'DDU Connect'</li>
+                    <li><strong>Member of Code Committee (2019)</strong> - University Tech Fest</li>
+                    <li><strong>Member of Organising Committee (2018)</strong> - University Tech Fest</li>
+                    <li><strong>Senior Editor (2017-18)</strong> for University Tabloid 'DDU Connect'</li>
+                    <li><strong>Junior Editor (2016-17)</strong> for University Tabloid 'DDU Connect'</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact" style="text-align: center; padding: var(--space-32);">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 16px; margin: var(--space-24) 0;">
+                I'm always interested in discussing research ideas, systems design challenges, or opportunities to collaborate.
+            </p>
+            <div style="display: flex; gap: var(--space-16); justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:huzaifajazzmankda@gmail.com" class="btn btn-secondary">Send Email</a>
+                <a href="https://www.linkedin.com/in/huzaifa242/" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://github.com/huzaifa242" class="btn btn-secondary">GitHub</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Huzaifa Mankda | Built with ❤️ for better storytelling</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Highlight nav item on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section, .hero');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'var(--color-primary)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
