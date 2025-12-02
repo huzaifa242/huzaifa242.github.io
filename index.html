@@ -34,6 +34,7 @@
             --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             
+            --space-4: 4px;
             --space-8: 8px;
             --space-12: 12px;
             --space-16: 16px;
@@ -225,6 +226,16 @@
             color: var(--color-accent-teal);
             background: rgba(24, 192, 196, 0.15);
             padding: var(--space-8) var(--space-12);
+            border-radius: var(--radius-base);
+            white-space: nowrap;
+            border: 1px solid rgba(24, 192, 196, 0.3);
+        }
+
+        .card-date-inner {
+            font-size: 13px;
+            color: var(--color-accent-teal);
+            background: rgba(24, 192, 196, 0.15);
+            padding: var(--space-4) var(--space-8);
             border-radius: var(--radius-base);
             white-space: nowrap;
             border: 1px solid rgba(24, 192, 196, 0.3);
@@ -438,6 +449,11 @@
                 margin-top: var(--space-12);
             }
 
+            .card-date-inner {
+                align-self: flex-start;
+                margin-top: var(--space-8);
+            }
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -518,7 +534,7 @@
             <div class="highlight">
                 <div class="highlight-title">About Me</div>
                 <p>
-                    I am a Software Engineer at Google with primary focus on applied AI and research. Currently, As a part of the Consumer Shopping Quality team, Journey Orchestration and Evaluation frameworks for Generative AI in commercial search and built data-intensive ML pipelines.Previously, was  part of the Sports team under Search Verticals. I led efforts on queryless and proactive sports experiences for users including Discover and Homestack sports experiences.  I have also had opportunities to work on a breadth of the Search stack. My current domain involves answering “How do we know if AI systems truly serve user needs?”using various cutting edge AI technologies to evaluate helpfulness and relevance. I have also previously worked on NLP and Sports on Google Assistant.
+                    I am a Software Engineer at Google with primary focus on applied AI and research. Currently, as a part of the Consumer Shopping Quality team, Journey Orchestration and Evaluation frameworks for Generative AI in commercial search and built data-intensive ML pipelines. Previously, was  part of the Sports team under Search Verticals. I led efforts on queryless and proactive sports experiences for users including Discover and Homestack (Google Feed).  I have also had opportunities to work on a breadth of the Search stack. My current domain involves using various cutting edge technologies to evaluate helpfulness and relevance of AI. I have also previously worked on NLP and Sports on Google Assistant.
                 </p>
             </div>
         </section>
@@ -526,22 +542,6 @@
         <!-- Education Section -->
         <section class="section" id="education">
             <h2 class="section-title">Education</h2>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <h3 class="card-title">Stanford University</h3>
-                        <p class="card-meta">SCPD Non-Degree Option • Stanford, CA</p>
-                    </div>
-                    <span class="card-date">2021 - 2023</span>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li><strong>CS221:</strong> Artificial Intelligence Principles and Techniques (Grade: A-) • Jun-Aug 2023</li>
-                        <li><strong>CS242:</strong> Programming Languages (Grade: A) • Oct-Dec 2021</li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="card">
                 <div class="card-header">
@@ -555,6 +555,27 @@
                     <p><strong>CGPA: 9.28/10.0</strong></p>
                     <p><strong>Relevant Courses:</strong> Data Structures, Algorithms, Machine Learning, AI, Database Systems, 
                     Operating Systems, Network Security, Image Processing, Big Data Analytics</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Stanford University</h3>
+                        <p class="card-meta">SCPD Non-Degree Option • Stanford, CA</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; justify-content: space-between; align-items: center;">
+                            <span><strong>CS221:</strong> Artificial Intelligence Principles and Techniques | Grade: A-</span>
+                            <span class="card-date-inner">June - Aug 2023</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center;">
+                            <span><strong>CS242:</strong> Programming Languages | Grade: A</span>
+                            <span class="card-date-inner">Oct - Dec 2021</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -575,26 +596,28 @@
                     <ul>
                         <li><b>Dedicated 20% of time</b> to research on FIRMS(Fire Information for Resource Management System) wildfire
                         information using NASA Satellites to “Predict Wildfires using heuristics and hotspot patterns”.</li>
-                        <li>Sanitized <b>1.2</b> billion records from FIRMS Wildfire data for analysis.</li>
+                        <li>Sanitized <b>1.2 billion records</b> from FIRMS Wildfire data for analysis.</li>
                         <li>Created data visualizations to identify wildfire hotspot trends and patterns.</li>
-                        <li>Designed a pipeline to efficiently process a 1.2 billion-record database for complex and costly data intensive
-                        operations.</li>                    </ul>
+                        <li>Designed a pipeline to efficiently process a <b>1.2 billion-record</b> database for complex and costly data intensive
+                        operations.</li>                    
+                    </ul>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <h3 class="card-title">Impact of Stale Content on User Behavior in Search Feeds</h3>
+                        <h3 class="card-title">Impact of user behavior on Google’s Feed based on Shopping content staleness</h3>
                         <p class="card-meta">Google</p>
                     </div>
                     <span class="card-date">Oct 2024 - Nov 2024</span>
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Conducted A/B tests and data mining on shopping content staleness impact</li>
-                        <li>Analyzed correlation between document freshness, query class, user journey, and engagement</li>
-                        <li>Determined optimal fresh content ratio to maximize user satisfaction</li>
+                        <li>Observed some stale shopping articles on the feed while launching the Shopping Article to Query project.</li>
+                        <li>Investigated the “Impact of stale Shopping content on user behavior on Google’s Feed” by <b>conducting A/B tests</b> and <b>data mining</b>.</li>
+                        <li>Plotted the distribution of document freshness against the user interaction to understand the correlation between query class, user journey type, document freshness, and user behavior.</li>
+                        <li>Maximized user satisfaction by <b>determining the optimal fresh content ratio for the feed through dedicated research</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -602,34 +625,37 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <h3 class="card-title">Feature Analysis of Triggering Models for Sports Feed</h3>
-                        <p class="card-meta">Google</p>
-                    </div>
-                    <span class="card-date">Aug 2022 - Oct 2022</span>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Identified "national affinity" as weak feature in RL triggering model through systematic inspection</li>
-                        <li>Devised novel algorithm using location as proxy to address feature weakness</li>
-                        <li><strong>Impact:</strong> Improved recall by 30-50% across multiple countries; became reference for extending to women's sports</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        <h3 class="card-title">Analysis of User Interest to determine Headroom for League Experience on Feed</h3>
+                        <h3 class="card-title">Analysis of User Interest to determine the Headroom for League Experience on Feed</h3>
                         <p class="card-meta">Google</p>
                     </div>
                     <span class="card-date">Nov 2022 - Jan 2023</span>
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Conducted research on user interest analysis when became TL for Sports Vertical on Google Feed</li>
-                        <li>Developed clustering pipeline to determine relationships among teams, athletes, and league entities</li>
-                        <li>Performed regression analysis on interest capturing algorithm to quantify headroom</li>
-                        <li>Identified opportunities for future projects to optimize sports experience on Feed</li>
+                        <li>Conducted research on “Analysis of User Interest to determine the Headroom for League Experience on Feed” when I became TL for Sports Vertical on Google Feed.</li>
+                        <li>Developed a <b>clustering pipeline</b> to determine the relationships among teams, athletes, and league entities within the user interest model.</li>
+                        <li>Performed <b>regression analysis</b> on the interest capturing algorithm to quantify the headroom.</li>
+                        <li>This helped identify <b>opportunities for future projects</b> to optimize sports experience on the Feed.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">Feature Analysis of Triggering Models for Sports Experience on Google Feed</h3>
+                        <p class="card-meta">Google</p>
+                    </div>
+                    <span class="card-date">Aug 2022 - Oct 2022</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Performed “Feature Analysis of Triggering Models for Sports Experience on Feed” while onboarding Google Feed efforts.</li>
+                        <li>Concluded that “national affinity” was a weak feature during <b>inspection of the RL model</b>.</li>
+                        <li>Rationale: League tournaments overwhelmed the national matches in quantity for sports like Soccer.</li>
+                        <li>Devised a novel algorithm to fix this by using location as a proxy.</li>
+                        <li><b>Improved recall by 30-50%</b> in various countries.</li>
+                        <li>This research <b>methodology became a reference to further extend</b> and optimize for women’s sports and other tentpole events.</li>
                     </ul>
                 </div>
             </div>
@@ -644,10 +670,11 @@
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Investigated code paths of Sports server to determine feasibility of latency optimization</li>
-                        <li>Designed algorithm to sample server requests</li>
-                        <li>Performed multiple iterations of load testing of infrastructure</li>
-                        <li>Optimized multiple code paths with most significant result reducing latency from 1.2s to 20ms in critical code path</li>
+                        <li>Investigated the code paths of Sports server to determine feasibility of latency optimization.</li>
+                        <li><b>Designed an algorithm to sample</b> the server requests.</li>
+                        <li>Performed <b>multiple iterations of load testing</b> of the infrastructure.</li>
+                        <li>Analyzed the server profile and performed in-flight stack inspections.</li>
+                        <li>Optimized for multiple code paths with the most significant result <b>reducing latency from 1.2s to 20ms</b> in a critical code path.</li>
                     </ul>
                 </div>
             </div>
@@ -662,10 +689,10 @@
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Benchmarked CPU operations against code failures on random input sets</li>
-                        <li>Derived correlation between time and number of random inputs during code failure</li>
-                        <li>Implemented "Semi-Automated Code Testing Environment" to test code correctness based on time threshold</li>
-                        <li>Designed algorithm to generate random input sets consisting of multi-million inputs</li>
+                        <li>Benchmarked CPU operations against code failures on random input sets.</li>
+                        <li>Derived <b>correlation between time and number of random inputs</b> during code failure.</li>
+                        <li>Implemented "Semi-Automated Code Testing Environment" to test code correctness based on time threshold.</li>
+                        <li>Designed algorithm to <b>generate random input sets consisting of multi-million inputs</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -685,10 +712,12 @@
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Leading team focused on Applied AI impacting 30% of Google Search traffic</li>
-                        <li>Led E2E launch of document-to-query corpus (+11.75% shopping query coverage), identified as most impactful launch</li>
-                        <li>Pioneered Generative AI experiences in Shopping; engineered ML pipeline for intent-based query refinements (19M queries)</li>
-                        <li>Leading effort to build Personalized Autoraters for AI shopping recommendations</li>
+                        <li>Team focus on <b>Applied AI, 30% Google search traffic</b>.</li>
+                        <li>Led E2E launch of a document to query data corpus, identified by peers as the most impactful launch, <b>increasing 11.75% shopping query coverage</b>.</li>
+                        <li>Pioneered a workstream for Generative AI experiences in Shopping.</li>
+                        <li>Established collaborative relations with AI research teams and ML infra teams.</li>
+                        <li>Engineered a ML pipeline to generate intent based query refinements for a <b>corpus of 19M queries</b>.</li>
+                        <li>Leading an effort to build “Personalized Autoraters” for AI shopping recommendations.</li>
                     </ul>
                 </div>
             </div>
@@ -703,11 +732,12 @@
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Led infrastructure serving 600M MAU and 3% of global Google Search traffic</li>
-                        <li>Technical leadership on microservice migration (~1M LoC, zero user-facing disruption)</li>
-                        <li>Architected location-based interest inference; improved recall by 30-50% in multiple countries</li>
-                        <li>Reduced latency from 1.2s to 20ms in critical code path through systematic optimization</li>
-                        <li>Led launches for Olympics, World Cups affecting 500M+ unique users globally</li>
+                        <li>Sports Vertical serves <b>600million MAU(Monthly Active Users), 3% Google search traffic</b>.</li>
+                        <li>Led efforts across surfaces like web search, content feed, widgets, AI assistant.</li>
+                        <li>Direct impact on Search objectives by optimizing personalization and triggering algorithms.</li>
+                        <li>Technical challenges: <b>spiky traffic, real time score updates, and integrating multiple data providers</b>.</li>
+                        <li>Enhanced system reliability by improving data freshness, capacity planning, and modernizing infrastructure.</li>
+                        <li>Leading contributions to high visibility projects like <b>Olympics, Soccer & Cricket World Cups</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -722,9 +752,10 @@
                 </div>
                 <div class="card-content">
                     <ul>
-                        <li>Designed version control system for warehouse configuration audit and maintenance</li>
-                        <li>Performed security threat model analysis of web applications</li>
-                        <li>Optimized retry mechanisms in critical system paths; migrated service to HTTPS for external network availability</li>
+                        <li><b>Designed a version control system</b> to audit and maintain warehouse configuration.</li>
+                        <li>Performed <b>threat model analysis</b> of a web app for security threats.</li>
+                        <li>Optimised retry mechanism of a critical system path to reduce outages.</li>
+                        <li>Migrated a service to HTTPS endpoint to make it available on the external network.</li>
                     </ul>
                 </div>
             </div>
